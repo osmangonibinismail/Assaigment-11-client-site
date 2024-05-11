@@ -1,16 +1,16 @@
 
 
-const AddFood = () => {
-    return (
-        <div className="hero min-h-screen bg-[url('https://i.ibb.co/yFqnB0L/addbg.png')]">
-            <div className="card-body p-10 bg-base-300 mb-20 mt-20">
+const Update = () => {
+  return (
+    <div className="hero min-h-screen bg-[url('https://i.ibb.co/S3d3PMT/bg1.png')]">
+            <div className="card-body w-7/12 p-10 bg-base-300 mb-20 mt-20">
                 <div className="card-body items-center text-center">
                     <div className="avatar">
                         <div className="w-24 rounded">
                             <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>
                     </div>
-                    <h5 className="text-xl font-bold">name</h5>
+                    <h5 className="text-xl font-bold">User Name</h5>
                     <p>email:osman@gmail.com</p>
                     
                 </div>
@@ -99,39 +99,6 @@ const AddFood = () => {
                         </div>
                     </div>
                     {/* 4 */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-bold">
-                                    User Name
-                                </span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="userName" placeholder="User Name" className="input input-bordered w-full" id="" />
-                            </label>
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-bold">
-                                    User Email
-                                </span>
-                            </label>
-                            <label className="input-group">
-                                <input type="email" name="userEmail" placeholder="Your Email" className="input input-bordered w-full" id="" />
-                            </label>
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text font-bold">
-                                    User Photo URL
-                                </span>
-                            </label>
-                            <label className="input-group">
-                                <input type="text" name="foodImageURL" placeholder="User Photo URL" className="input input-bordered w-full" id="" />
-                            </label>
-                        </div>
-                    </div>
-                    {/* 5 */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text font-bold">
@@ -147,7 +114,7 @@ const AddFood = () => {
                 </form>
             </div>
         </div>
-    )
+  )
 }
 
-export default AddFood
+export default Update
