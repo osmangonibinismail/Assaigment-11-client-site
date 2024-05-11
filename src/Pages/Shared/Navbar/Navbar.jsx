@@ -16,7 +16,14 @@ const Navbar = () => {
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='availableFood'>Available Food</Link></li>
-        <li><Link to='register'>Register</Link></li>
+        
+        {
+            user ? null : (
+                <>
+                    <li><Link to='register'>Register</Link></li>
+                </>
+            )
+        }
         {
             user && <>
                 <li><Link to='addFood'>Add Food</Link></li>

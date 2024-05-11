@@ -53,6 +53,11 @@ const Login = () => {
                             </div>
                         </form>
                         <p className="text-center my-4">New to our website? please <Link to='/register' className="text-orange-600 text-xl font-bold">Register</Link></p>
+                        <button className="border border-indigo-600 btn mt-5 mb-2 ml-5 mr-5 font-bold text-xl">
+                        <FaGoogle></FaGoogle>
+                        <p className="ml-3">Login with Google</p>
+
+                    </button>
                     </div>
                 </div>
             </div>
