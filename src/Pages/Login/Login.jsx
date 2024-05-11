@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
 
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogin = event => {
@@ -23,6 +24,16 @@ const Login = () => {
                 console.log(user);
             })
             .then(error => console.log(error));
+    }
+    const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user)
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -53,11 +64,10 @@ const Login = () => {
                             </div>
                         </form>
                         <p className="text-center my-4">New to our website? please <Link to='/register' className="text-orange-600 text-xl font-bold">Register</Link></p>
-                        <button className="border border-indigo-600 btn mt-5 mb-2 ml-5 mr-5 font-bold text-xl">
-                        <FaGoogle></FaGoogle>
-                        <p className="ml-3">Login with Google</p>
-
-                    </button>
+                        <button onClick={handleSignInWithGoogle} className="border border-indigo-600 mt-5 mb-2 ml-5 mr-5 font-bold text-xl btn btn-outline btn-accent">
+                            <FaGoogle></FaGoogle>
+                            <p className="ml-3">Login with Google</p>
+                        </button>
                     </div>
                 </div>
             </div>

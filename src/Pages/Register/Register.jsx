@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
 
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, signInWithGoogle} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleRegister = event => {
@@ -26,6 +27,16 @@ const Register = () => {
         })
         .catch(error => console.log(error))
 
+    }
+    const handleRegisterWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result.user)
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
     return (
         <div className="hero min-h-screen ">
@@ -66,6 +77,10 @@ const Register = () => {
                             </div>
                         </form>
                         <p className="text-center my-4">Already Have an Account? please <Link to='/login' className="text-orange-600 text-xl font-bold">Log in</Link></p>
+                        <button onClick={handleRegisterWithGoogle} className="border border-indigo-600 mt-5 mb-2 ml-5 mr-5 font-bold text-xl btn btn-outline btn-accent">
+                            <FaGoogle></FaGoogle>
+                            <p className="ml-3">Register with Google</p>
+                        </button>
                     </div>
                 </div>
             </div>
