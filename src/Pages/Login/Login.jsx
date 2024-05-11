@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Login = () => {
@@ -21,7 +23,7 @@ const Login = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-gradient-to-r from-emerald-500 to-fuchsia-500">
+        <div className="hero min-h-screen ">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="w-1/2 mr-10">
                     <img src="https://i.ibb.co/R08ZHs8/login4.png" alt="" />

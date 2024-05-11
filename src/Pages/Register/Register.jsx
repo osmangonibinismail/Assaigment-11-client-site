@@ -25,7 +25,7 @@ const Register = () => {
 
     }
     return (
-        <div className="hero min-h-screen bg-gradient-to-r from-green-300 to-fuchsia-500">
+        <div className="hero min-h-screen ">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="w-1/2 mr-14">
                     <img src="https://i.ibb.co/jL97rrG/login1.png" alt="" />
