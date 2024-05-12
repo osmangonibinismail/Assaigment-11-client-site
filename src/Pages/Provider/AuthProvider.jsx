@@ -17,10 +17,12 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         try {
             const userToken = await createUserWithEmailAndPassword(auth, email, password)
-            await updateProfile(auth.currentUser, {
+            await updateProfile(userToken.user, {
                 displayName: name,
                 photoURL: photoURL
             })
+            setUser({...userToken.user,displayName: name,
+                photoURL: photoURL})
             return userToken.user
         } catch (error) {
             throw error

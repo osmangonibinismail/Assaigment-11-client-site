@@ -24,6 +24,7 @@ const Register = () => {
             event.target.reset();
             navigate('/');
             console.log(user);
+            
         })
         .catch(error => console.log(error))
 

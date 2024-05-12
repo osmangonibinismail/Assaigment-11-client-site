@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { AuthContext } from "../../Provider/AuthProvider"
+import { Tooltip } from "react-tooltip";
 
 
 const Navbar = () => {
@@ -14,21 +15,21 @@ const Navbar = () => {
 
 
     const navItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='availableFood'>Available Food</Link></li>
-        
+        <li className="font-semibold"><Link to='/'>Home</Link></li>
+        <li className="font-semibold"><Link to='availableFood'>Available Food</Link></li>
+
         {
             user ? null : (
                 <>
-                    <li><Link to='register'>Register</Link></li>
+                    <li className="font-semibold"><Link to='register'>Register</Link></li>
                 </>
             )
         }
         {
             user && <>
-                <li><Link to='addFood'>Add Food</Link></li>
-                <li><Link to='manageMyFood'>Manage My Foods</Link></li>
-                <li><Link to='update'>Update</Link></li>
+                <li className="font-semibold"><Link to='addFood'>Add Food</Link></li>
+                <li className="font-semibold"><Link to='manageMyFood'>Manage My Foods</Link></li>
+                <li className="font-semibold"><Link to='singleFoodDetails/:id'>Food Details</Link></li>
             </>
         }
     </>
@@ -54,10 +55,18 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <Tooltip
+                    id="my-tooltip" />
+                <img data-tooltip-id="my-tooltip"
+                    src={user?.photoURL ? user?.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}
+                    alt="User"
+                    className="w-10 h-10 rounded-full cursor-pointer mr-2"
+                    data-tooltip-content={user?.displayName}
+
+                />
                 {
                     user ? <>
-                        <span>{user.email}</span>
-                        <a onClick={handleLogOut} className="btn btn-outline btn-accent">Sign Out</a>
+                        <a onClick={handleLogOut} className="btn btn-outline btn-accent">Log Out</a>
                     </>
                         : <Link to="/login">
                             <button className="btn btn-outline btn-accent">Log in</button>
