@@ -163,7 +163,7 @@ const Update = () => {
                             </span>
                         </label>
                         <label className="input-group">
-                            <input type="email" name="additionalNotes" placeholder="Additional Notes" className="input input-bordered input-lg w-full" id="" defaultValue={food.additionalNotes}/>
+                            <input type="text" name="additionalNotes" placeholder="Additional Notes" className="input input-bordered input-lg w-full" id="" defaultValue={food.additionalNotes}/>
                         </label>
                     </div>
                     {/* add button */}

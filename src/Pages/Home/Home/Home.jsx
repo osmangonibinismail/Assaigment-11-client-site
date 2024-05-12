@@ -1,6 +1,8 @@
 import AllAvailableButton from "../AllAvailableFoodButton/AllAvailableButton"
 import Banner from "../Banner/Banner"
 import FeaturedFoods from "../FeaturedFoods/FeaturedFoods"
+import News from "../News/News"
+import OurTeamMember from "../OurTeamMembar/OurTeamMember"
 
 
 const Home = () => {
@@ -11,7 +13,8 @@ const Home = () => {
                 <FeaturedFoods></FeaturedFoods>
             </div>
             <AllAvailableButton></AllAvailableButton>
-            <h2>this is home</h2>
+            <OurTeamMember></OurTeamMember>
+            <News></News>
         </div>
     )
 }

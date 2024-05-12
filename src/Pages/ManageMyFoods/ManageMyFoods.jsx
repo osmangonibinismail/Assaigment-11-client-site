@@ -52,7 +52,7 @@ const ManageMyFoods = (food) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20 mb-20 gap-4 ml-5">
       {
-        item?.map(p => (
+        item?.map((p) => (
 
           <div className=" w-96 bg-base-100 shadow-xl mb-10">
             <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
@@ -73,7 +73,6 @@ const ManageMyFoods = (food) => {
               </div>
               <div>Location:{p.pickupLocation}</div>
               <Link to={`/update/${p._id}`}><button className="btn btn-outline btn-info w-full">Update</button></Link>
-              {/* <Link to={`/singleFoodDetails/${p._id}`}><button className="btn btn-outline btn-info w-full">details</button></Link> */}
               <button onClick={() => handleDelete(p._id)} className="btn btn-outline btn-warning">Delete</button>
             </div>
           </div>

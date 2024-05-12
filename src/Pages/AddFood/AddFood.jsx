@@ -23,7 +23,8 @@ const AddFood = () => {
         const additionalNotes = form.additionalNotes.value;
         const email = user.email;
         const displayName = user.displayName;
-        const addFood = {foodName, foodImageURL, foodQuantity, foodStatus, expiredDate, pickupLocation, additionalNotes, email, displayName}
+        const photoURL = user.photoURL
+        const addFood = {foodName, foodImageURL, foodQuantity, foodStatus, expiredDate, pickupLocation, additionalNotes, email, displayName, photoURL}
 
 
         fetch("http://localhost:5000/addFood", {

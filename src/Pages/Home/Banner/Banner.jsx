@@ -1,37 +1,104 @@
-
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { SwiperSlide, Swiper } from 'swiper/react';
+import "swiper/css";
+import "swiper/css/bundle";
+import 'swiper/css/navigation';
 
 const Banner = () => {
   return (
-    <div className="carousel w-full">
-  <div id="slide1" className="carousel-item relative w-full">
-    <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide4" className="btn btn-circle">❮</a> 
-      <a href="#slide2" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide2" className="carousel-item relative w-full">
-    <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide1" className="btn btn-circle">❮</a> 
-      <a href="#slide3" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide3" className="carousel-item relative w-full">
-    <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide2" className="btn btn-circle">❮</a> 
-      <a href="#slide4" className="btn btn-circle">❯</a>
-    </div>
-  </div> 
-  <div id="slide4" className="carousel-item relative w-full">
-    <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
-    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide3" className="btn btn-circle">❮</a> 
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-</div>
+    <div>
+            <div className="lg:mt-16 mt-20">
+            <Swiper
+
+                navigation={true}
+                modules={[Navigation, Autoplay, Pagination]}
+                loop={true}
+                autoplay={
+                    { delay: 2000 }
+                }
+                pagination={{
+                    clickable: true,
+                }}
+
+
+            >
+                <SwiperSlide>
+                    <div className="">
+                        <div className="hero p-8 rounded-3xl bg-base-200">
+                            <div className="hero-content lg:h-[400px]  flex-col flex md:flex-row-reverse lg:flex-row-reverse">
+                                <div className="lg:ml-36">
+                                    <img width="800" height="700" src="https://i.ibb.co/yBxwYjJ/3.jpg" className=" rounded-lg shadow-2xl" />
+                                </div>
+                                <div className="space-y-4 pl-12">
+                                    <h1 className="text-5xl font-bold mb-12">Welcome to OAI Food Corner</h1>
+                                    <h1 className="text-2xl font-semibold">Pesto Mozzarella Burger</h1>
+                                    <p>"Pesto Mozzarella Burger: A savory blend of basil pesto, melted mozzarella, and juicy beef patty."</p>
+                                    <button className="btn text-white font-bold bg-blue-400">Visit Now</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="mt-12">
+                        <div className="hero p-8 rounded-3xl bg-base-200">
+                            <div className="hero-content lg:h-[400px]  flex-col flex md:flex-row-reverse lg:flex-row-reverse">
+                                <div className="lg:ml-36">
+                                    <img width="800" height="700" src="https://i.ibb.co/ZNVQkNH/11.png" className=" rounded-lg shadow-2xl" />
+                                </div>
+                                <div className="space-y-4 pl-12">
+                                    <h1 className="text-5xl font-bold mb-12">Classic Beef Burger</h1>
+                                    <p>"Classic Beef Burger: A timeless favorite with juicy beef, fresh lettuce, and tangy pickles."</p>
+                                    <button className="btn text-white font-bold bg-blue-400">Visit Now</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                
+                
+                <SwiperSlide>
+                    <div className="mt-12">
+                        <div className="hero p-8 rounded-3xl bg-base-200">
+                            <div className="hero-content lg:h-[400px] flex-col flex md:flex-row-reverse lg:flex-row-reverse ">
+                                <div className="lg:ml-36">
+                                    <img width="800" height="700" src="https://i.ibb.co/s1Y6hZg/12.png" className="rounded-lg shadow-2xl" />
+                                </div>
+                                <div className="space-y-4 pl-12">
+                                    <h1 className="text-5xl font-bold mb-12">Bacon Cheese burger</h1>
+                                    <p>"Bacon Cheeseburger: Indulge in crispy bacon, melted cheese, and juicy beef in every bite."</p>
+                                    <button className="btn text-white font-bold bg-blue-400">Visit Now</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="mt-12">
+                        <div className="hero p-8 rounded-3xl bg-base-200">
+                            <div className="hero-content lg:h-[400px] flex-col flex md:flex-row-reverse lg:flex-row-reverse ">
+                                <div className="lg:ml-36">
+                                    <img width="800" height="700" src="https://i.ibb.co/c2WmPGP/14.png" className="rounded-lg shadow-2xl" />
+                                </div>
+                                <div className="space-y-4 pl-12">
+                                    <h1 className="text-5xl font-bold mb-12">BBQ Chicken Burger</h1>
+                                    <p>"BBQ Chicken Burger: Tangy BBQ sauce, grilled chicken, and fresh toppings for a flavorful experience."</p>
+                                    <button className="btn text-white font-bold bg-blue-400">Visit Now</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+            </Swiper>
+
+        </div>
+            {/*  */}
+            
+        </div>
   )
 }
 

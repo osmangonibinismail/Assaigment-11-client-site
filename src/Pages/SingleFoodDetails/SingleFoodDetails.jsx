@@ -18,7 +18,7 @@ const SingleFoodDetails = () => {
             })
     }, [id])
     return (
-        <div className="p-20 mt-10 mb-20 hero min-h-screen bg-[url('https://i.ibb.co/0DKkmVb/update1bg.png')]">
+        <div className="p-20 mt-10 mb-20 hero min-h-screen bg-[url('https://i.ibb.co/J5dBT0v/22.jpg')]">
             <div className="card-body w-10/12 p-5 bg-base-300 mb-10 mt-10">
                 <h1 className="text-center font-extrabold text-4xl text-teal-800">Single a Food </h1>
                 <div className="text-center text-2xl mb-10 mt-5">
