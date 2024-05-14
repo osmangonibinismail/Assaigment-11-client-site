@@ -68,8 +68,8 @@ const SingleFoodDetails = () => {
                 </div>
                 <div className="mb-20 border-dotted border-t border-indigo-500">
                     <div className="hero bg-base-200 ">
-                        <div className="hero-content flex-col lg:flex-row-reverse p-10">
-                            <img width="500" height="500" src={singleFood.foodImageURL} className="max-w-sm rounded-lg shadow-2xl" />
+                        <div className="hero-content flex-col lg:flex-row-reverse">
+                            <img width="500" height="500" src={singleFood.foodImageURL} className=" rounded-lg shadow-2xl" />
                             <div>
                                 <h1 className="text-2xl font-bold">Food Name: {singleFood.foodName}</h1>
                                 <p className="py-6">Additional Notes: {singleFood.additionalNotes}</p>
@@ -104,7 +104,7 @@ const SingleFoodDetails = () => {
 
                                         </div>
                                         <div className="border-dotted border-t border-indigo-500 ">
-                                            <img width="500" height="500" src={singleFood.foodImageURL} alt="" className="mt-5 mb-5"/>
+                                            <img width="500" height="500" src={singleFood.foodImageURL} alt="" className="mt-6 mb-5"/>
                                         </div>
                                         <form onSubmit={handleSingleFormData} className="mb-20 border-dotted border-t border-indigo-500">
                                             {/* 1 */}

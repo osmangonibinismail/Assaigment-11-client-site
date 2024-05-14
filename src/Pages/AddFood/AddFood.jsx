@@ -61,7 +61,7 @@ const AddFood = () => {
 
     return (
         <div className="hero min-h-screen bg-[url('https://i.ibb.co/yFqnB0L/addbg.png')]">
-            <div className="card-body w-10/12 p-10 bg-base-300 mb-20 mt-20">
+            <div className="card-body w-10/12 bg-base-300 mb-20 mt-20">
                 <h1 className="text-center font-extrabold text-4xl text-teal-800">Add a Food </h1>
                 <div className="card-body items-center text-center">
                     <div className="avatar">

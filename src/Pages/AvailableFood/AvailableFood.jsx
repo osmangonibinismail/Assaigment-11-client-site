@@ -21,9 +21,9 @@ const AvailableFood = () => {
   const [sort, setSort] = useState('');
 
   useEffect(() => {
-    fetch(`https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=${asc? 'asc' : 'des'}&search=${search}`)
-    .then(res => res.json())
-    .then(data => setSort(data));
+    fetch(`https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=${asc ? 'asc' : 'des'}&search=${search}`)
+      .then(res => res.json())
+      .then(data => setSort(data));
   }, [asc, search])
 
   // useEffect(() => {
@@ -39,7 +39,7 @@ const AvailableFood = () => {
   //   getCount(data.count)
   // }, [filter, sort, search])
 
-  const handleSearch = e =>{
+  const handleSearch = e => {
     e.preventDefault();
     const searchText = e.target.search.value;
     // console.log(searchText);
@@ -48,31 +48,35 @@ const AvailableFood = () => {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="grid grid-cols-1 md:grid-cols-2 justify-between">
         {/* <h1 className="text-3xl text-red-500">Total Card:{allFood?.length} </h1> */}
-        
+
         {/*search form   onSubmit={handleSearch} */}
+        <div>
         <form onSubmit={handleSearch}>
           <div className="flex p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
             <input
-            className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline focus:placeholder-transparent"
-            // onChange={e => setSearchText(e.target.value)}
-            // value={searchText}
-             type="text"
+              className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline focus:placeholder-transparent"
+              // onChange={e => setSearchText(e.target.value)}
+              // value={searchText}
+              type="text"
               name="search"
-              placeholder="Enter Food Name" aria-label='Enter Food Name' 
+              placeholder="Enter Food Name" aria-label='Enter Food Name'
             />
             <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
               Search
             </button>
           </div>
         </form>
+        </div>
         {/*  */}
-        <button 
-        onClick={() => setAsc(!asc)}
-        className="btn btn-outline  justify-end">
-          {asc ? 'Date High to low' : 'Date Low to High'}
-        </button>
+        <div className="justify-end">
+          <button
+            onClick={() => setAsc(!asc)}
+            className="btn btn-outline  justify-end">
+            {asc ? 'Date High to low' : 'Date Low to High'}
+          </button>
+        </div>
         {/* <div>
           <select
             onChange={e => {
@@ -87,7 +91,7 @@ const AvailableFood = () => {
 
       </div>
       <div className="mt-5 mb-5 text-center">
-      <Link to={'/changeLayout'}><button className="btn btn-outline  justify-end">Change Layout</button></Link>
+        <Link to={'/changeLayout'}><button className="btn btn-outline  justify-end">Change Layout</button></Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 mt-10 mb-10">

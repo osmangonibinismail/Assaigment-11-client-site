@@ -1,3 +1,4 @@
+import About from "../About/About"
 import AllAvailableButton from "../AllAvailableFoodButton/AllAvailableButton"
 import Banner from "../Banner/Banner"
 import FeaturedFoods from "../FeaturedFoods/FeaturedFoods"
@@ -9,6 +10,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <About></About>
             <div className="">
                 <FeaturedFoods></FeaturedFoods>
                 
