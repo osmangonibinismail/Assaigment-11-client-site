@@ -7,18 +7,18 @@ import Swal from "sweetalert2";
 const Update = () => {
     const { user } = useContext(AuthContext);
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
     const [food, setFood] = useState({});
 
     const foodUpdate = useLoaderData();
-    console.log(foodUpdate);
+    // console.log(foodUpdate);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleFood/${id}`)
+        fetch(`https://assaigment-11-server-site-henna.vercel.app/singleFood/${id}`)
             .then(res => res.json())
             .then(data => {
                 setFood(data);
-                console.log(data);
+                // console.log(data);
             })
     }, [id])
 
@@ -36,7 +36,7 @@ const Update = () => {
         const foodUpdate = { foodName, foodImageURL, foodQuantity, foodStatus, expiredDate, pickupLocation, additionalNotes}
 
 
-        fetch(`http://localhost:5000/updateFood/${id}`, {
+        fetch(`https://assaigment-11-server-site-henna.vercel.app/updateFood/${id}`, {
             method: "PUT",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(foodUpdate)
@@ -52,11 +52,11 @@ const Update = () => {
                         confirmButtonText: 'Okey'
                     })
                 }
-                console.log(data)
+                // console.log(data)
             })
 
         e.target.reset()
-        console.log(foodUpdate);
+        // console.log(foodUpdate);
     }
 
     return (

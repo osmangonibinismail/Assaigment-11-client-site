@@ -2,6 +2,7 @@
 const colors = require('tailwindcss/colors');
 export default {
   content: [
+	'node_modules/preline/dist/*.js',
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
@@ -43,6 +44,7 @@ export default {
   },
   plugins: [
     require('daisyui'),
+	require('preline/plugin'),
   ],
 }
 

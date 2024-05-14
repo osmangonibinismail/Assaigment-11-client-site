@@ -10,7 +10,7 @@ const ManageMyFoods = (food) => {
   const [deleteFood, setDeleteFood] = useState(false);
   // console.log(user)
   useEffect(() => {
-    fetch(`http://localhost:5000/myFood/${user?.email}`)
+    fetch(`https://assaigment-11-server-site-henna.vercel.app/myFood/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setItem(data);
@@ -19,8 +19,9 @@ const ManageMyFoods = (food) => {
   const handleDelete = (id) => {
     
 
-    fetch(`http://localhost:5000/delete/${id}`, {
-      method: "DELETE"
+    fetch(`https://assaigment-11-server-site-henna.vercel.app/delete/${id}`, {
+      method: "DELETE",
+      credentials: "include"
     })
       .then(res => res.json())
       .then(data => {
@@ -55,7 +56,7 @@ const ManageMyFoods = (food) => {
         item?.map((p) => (
 
           <div className=" w-96 bg-base-100 shadow-xl mb-10">
-            <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+            <figure><img  width="800" height="700" src={p.foodImageURL} alt="Shoes" /></figure>
 
             <h2 className="text-center mt-6 text-xl font-semibold">{p.foodName}</h2>
             <div className="card-body">

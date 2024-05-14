@@ -2,38 +2,57 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
-
+import toast from 'react-hot-toast';
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Login = () => {
 
+    const axiosSecure = useAxiosSecure()
     const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleLogin = event => {
+    const handleLogin = async event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        // console.log(email, password)
+        try {
+            const result = await signIn(email, password)
+            // console.log(result.user)
 
-        signIn(email, password)
-            .then(result => {
-                const user = result.user;
-                event.target.reset();
-                navigate('/');
-                console.log(user);
-            })
-            .then(error => console.log(error));
+            const { data } = await axiosSecure.post('/jwt',
+                {
+                    email: result?.user?.email,
+                },
+            )
+
+            // console.log(data)
+            navigate('/');
+            toast.success('Successfully Log in!')
+        } catch (error) {
+            // console.log(error)
+            toast.error(error?.message)
+        }
+
     }
-    const handleSignInWithGoogle = () => {
-        signInWithGoogle()
-            .then(result => {
-                console.log(result.user)
-                navigate('/');
-            })
-            .catch(error => {
-                console.error(error)
-            })
+    const handleSignInWithGoogle = async () => {
+        try {
+            const result = await signInWithGoogle()
+            // console.log(result.user)
+            const { data } = await axiosSecure.post('/jwt',
+                {
+                    email: result?.user?.email,
+                },
+            )
+
+            // console.log(data)
+            toast.success('Successfully Log in!')
+            navigate('/');
+        } catch (error) {
+            // console.log(error)
+            toast.error(error?.message)
+        }
     }
 
     return (

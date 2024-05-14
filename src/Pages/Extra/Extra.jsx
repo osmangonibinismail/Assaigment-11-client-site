@@ -1,39 +1,52 @@
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
-const { value: formValues } = await Swal.fire({
-    title: "Multiple inputs",
-    html: `
-      <input id="swal-input1" class="swal2-input">
-      <input id="swal-input2" class="swal2-input">
-      <input id="swal-input3" class="swal2-input">
-      <input id="swal-input4" class="swal2-input">
-      <input id="swal-input5" class="swal2-input">
-      <input id="swal-input6" class="swal2-input">
-      <input id="swal-input7" class="swal2-input">
-      <input id="swal-input8" class="swal2-input">
-    `,
-    focusConfirm: false,
-    preConfirm: () => {
-      return [
-        document.getElementById("swal-input1").value,
-        document.getElementById("swal-input2").value,
-        document.getElementById("swal-input3").value,
-        document.getElementById("swal-input4").value,
-        document.getElementById("swal-input5").value,
-        document.getElementById("swal-input6").value,
-        document.getElementById("swal-input7").value,
-        document.getElementById("swal-input8").value,
-      ];
-    }
-  });
-  if (formValues) {
-    Swal.fire(JSON.stringify(formValues));
-  }
+// const { value: formValues } = await Swal.fire({
+//     title: "Multiple inputs",
+//     html: `
+//       <input id="swal-input1" class="swal2-input">
+//       <input id="swal-input2" class="swal2-input">
+//       <input id="swal-input3" class="swal2-input">
+//       <input id="swal-input4" class="swal2-input">
+//       <input id="swal-input5" class="swal2-input">
+//       <input id="swal-input6" class="swal2-input">
+//       <input id="swal-input7" class="swal2-input">
+//       <input id="swal-input8" class="swal2-input">
+//     `,
+//     focusConfirm: false,
+//     preConfirm: () => {
+//       return [
+//         document.getElementById("swal-input1").value,
+//         document.getElementById("swal-input2").value,
+//         document.getElementById("swal-input3").value,
+//         document.getElementById("swal-input4").value,
+//         document.getElementById("swal-input5").value,
+//         document.getElementById("swal-input6").value,
+//         document.getElementById("swal-input7").value,
+//         document.getElementById("swal-input8").value,
+//       ];
+//     }
+//   });
+//   if (formValues) {
+//     Swal.fire(JSON.stringify(formValues));
+//   }
 
 const Extra = () => {
   return (
     <div>
-      <h1>hi</h1>
+      <section className="py-6 dark:bg-gray-100 dark:text-gray-900">
+	<div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
+		<img src="https://source.unsplash.com/random/301x301/" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 dark:bg-gray-500 aspect-square" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?0" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?1" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?2" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?3" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?4" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?5" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?6" />
+		<img alt="" className="w-full h-full rounded shadow-sm min-h-48 dark:bg-gray-500 aspect-square" src="https://source.unsplash.com/random/200x200/?7" />
+		<img src="https://source.unsplash.com/random/302x302/" alt="" className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-1 md:row-start-3 dark:bg-gray-500 aspect-square" />
+	</div>
+</section>
       
     </div>
   )

@@ -1,12 +1,18 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+import {  useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import useAuth from "../../hooks/useAuth";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const AddFood = () => {
+    const [startDate, setStartDate] = useState(new Date());
+    
     const { user } = useContext(AuthContext);
-    console.log("this is ",user);
+// console.log(user)
+    // console.log("this is ", user);
     const [addFormErrors, setAddFormErrors] = useState({});
     const Navigate = useNavigate();
 
@@ -24,39 +30,39 @@ const AddFood = () => {
         const email = user.email;
         const displayName = user.displayName;
         const photoURL = user.photoURL
-        const addFood = {foodName, foodImageURL, foodQuantity, foodStatus, expiredDate, pickupLocation, additionalNotes, email, displayName, photoURL}
+        const addFood = { foodName, foodImageURL, foodQuantity, foodStatus, expiredDate, pickupLocation, additionalNotes, email, displayName, photoURL }
 
 
-        fetch("http://localhost:5000/addFood", {
+        fetch("https://assaigment-11-server-site-henna.vercel.app/addFood", {
             method: "POST",
-            headers: {"Content-type": "application/json"},
+            headers: { "Content-type": "application/json" },
             body: JSON.stringify(addFood)
         })
-        .then(res => res.json())
-        
-        
-        // Navigate('/')
-        .then(data => {
-            console.log(data)
-            if (data?.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'User Add Food Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Okey'
-                })
-            }
-        })
+            .then(res => res.json())
+
+
+            // Navigate('/')
+            .then(data => {
+                // console.log(data)
+                if (data?.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'User Add Food Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Okey'
+                    })
+                }
+            })
 
         e.target.reset()
-        console.log(addFood);
+        // console.log(addFood);
 
     };
 
     return (
         <div className="hero min-h-screen bg-[url('https://i.ibb.co/yFqnB0L/addbg.png')]">
             <div className="card-body w-10/12 p-10 bg-base-300 mb-20 mt-20">
-            <h1 className="text-center font-extrabold text-4xl text-teal-800">Add a Food </h1>
+                <h1 className="text-center font-extrabold text-4xl text-teal-800">Add a Food </h1>
                 <div className="card-body items-center text-center">
                     <div className="avatar">
                         <div className="w-24 rounded">
@@ -128,27 +134,27 @@ const AddFood = () => {
                     </div>
                     {/* 3 */}
                     <div className="md:flex gap-4 mb-4">
-                        <div className="form-control md:w-1/2">
+                        <div className="form-control md:w-1/3">
                             <label className="label">
                                 <span className="label-text font-bold">
                                     Expired Date
                                 </span>
                             </label>
                             <label className="input-group">
-                                <input type="date" name="expiredDate" placeholder="Expired Date" className="input input-bordered w-full" id="" />
+                                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date"/>
                             </label>
                         </div>
-                        <div className="form-control md:w-1/2">
+                        <div className="form-control md:w-2/3">
                             <label className="label">
                                 <span className="label-text font-bold">
-                                Pickup Location
+                                    Pickup Location
                                 </span>
                             </label>
                             <label className="input-group">
                                 <input type="text" name="pickupLocation" placeholder="Pickup Location" className="input input-bordered w-full" id="" />
                             </label>
                         </div>
-                        
+
                     </div>
                     {/* 4 */}
                     {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">

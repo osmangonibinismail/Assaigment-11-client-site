@@ -45,6 +45,7 @@ const Navbar = () => {
             user && <>
                 <li className="font-semibold"><Link to='addFood'>Add Food</Link></li>
                 <li className="font-semibold"><Link to='manageMyFood'>Manage My Foods</Link></li>
+                <li className="font-semibold"><Link to='request'>My Request</Link></li>
             </>
         }
     </>

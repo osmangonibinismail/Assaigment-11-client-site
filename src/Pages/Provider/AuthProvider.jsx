@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import { createContext, useEffect, useState } from "react";
 import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 
 export const AuthContext = createContext();
@@ -39,15 +40,17 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider)
     }
     // log out
-    const logOut = () => {
+    const logOut = async () => {
         setLoading(true)
+        const {data} = await axios('https://assaigment-11-server-site-henna.vercel.app/logout', {withCredentials: true})
+        console.log(data)
         return signOut(auth);
     }
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            console.log('current User', currentUser);
+            // console.log('current User', currentUser);
             setLoading(false);
         });
         return () => {

@@ -11,6 +11,8 @@ import Update from "../Pages/Update/Update";
 import PrivateRoutes from "./PrivateRoutes";
 import SingleFoodDetails from "../Pages/SingleFoodDetails/SingleFoodDetails";
 import Extra from "../Pages/Extra/Extra";
+import MyRequest from "../Pages/MyRequest/MyRequest";
+import ChangeLayout from "../Pages/ChangeLayout/ChangeLayout";
 
 const router = createBrowserRouter([
     {
@@ -37,25 +39,35 @@ const router = createBrowserRouter([
         {
             path: 'availableFood',
             element: <AvailableFood></AvailableFood>,
-            loader: () => fetch('http://localhost:5000/allAvailableFood')
+            loader: () => fetch('https://assaigment-11-server-site-henna.vercel.app/allAvailableFood')
         },
         {
             path: 'manageMyFood',
             element: <PrivateRoutes><ManageMyFoods></ManageMyFoods></PrivateRoutes>,
-            loader: () => fetch('http://localhost:5000/manageMyFood/:email')
+            loader: (params) => fetch(`https://assaigment-11-server-site-henna.vercel.app/manageMyFood/${params.email}`)
         },
         {
             path: 'update/:id',
             element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-            loader: ({params}) => fetch(`http://localhost:5000/add/${params.id}`)
+            loader: ({params}) => fetch(`https://assaigment-11-server-site-henna.vercel.app/update/${params.id}`)
         },
         {
             path: 'singleFoodDetails/:id',
             element: <PrivateRoutes><SingleFoodDetails></SingleFoodDetails></PrivateRoutes>,
+            loader: ({params}) => fetch(`https://assaigment-11-server-site-henna.vercel.app/singleFoodDetails/${params.id}`)
         },
         {
             path: 'extra',
             element: <Extra></Extra>
+        },
+        {
+            path: 'request',
+            element: <PrivateRoutes><MyRequest></MyRequest></PrivateRoutes>
+        },
+        {
+            path: 'changeLayout',
+            element: <ChangeLayout></ChangeLayout>,
+            loader: () => fetch('https://assaigment-11-server-site-henna.vercel.app/changeLayout')
         }
       ]
     },

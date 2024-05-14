@@ -2,42 +2,60 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
+import toast from "react-hot-toast";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const Register = () => {
 
-    const {createUser, signInWithGoogle} = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure()
+    const { createUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleRegister = event => {
+    const handleRegister = async event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const photoURL = form.photoURL.value;
         const password = form.password.value;
-        console.log(name, email, password, photoURL)
+        // console.log(name, email, password, photoURL)
+        try {
+            const result = await createUser(email, password, name, photoURL)
+            // console.log(result.user)
+            const { data } = await axiosSecure.post('/jwt',
+                {
+                    email: result?.user?.email,
+                },
+            )
 
-        createUser(email, password, name, photoURL)
-        .then(result => {
-            const user = result.user;
-            event.target.reset();
+            // console.log(data)
+            toast.success('Successfully Log in!')
             navigate('/');
-            console.log(user);
-            
-        })
-        .catch(error => console.log(error))
+        } catch (error) {
+            // console.log(error)
+            toast.error(error?.message)
+        }
+
 
     }
-    const handleRegisterWithGoogle = () => {
-        signInWithGoogle()
-            .then(result => {
-                console.log(result.user)
-                navigate('/');
-            })
-            .catch(error => {
-                console.error(error)
-            })
+    const handleRegisterWithGoogle = async () => {
+        try {
+            const result = await signInWithGoogle()
+            // console.log(result.user)
+            const { data } = await axiosSecure.post('/jwt',
+                {
+                    email: result?.user?.email,
+                },
+            )
+
+            // console.log(data)
+            toast.success('Successfully Log in!')
+            navigate('/');
+        } catch (error) {
+            // console.log(error)
+            toast.error(error?.message)
+        }
     }
     return (
         <div className="hero min-h-screen ">
