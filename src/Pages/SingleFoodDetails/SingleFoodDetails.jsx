@@ -59,15 +59,15 @@ const SingleFoodDetails = () => {
             })
     }, [id])
     return (
-        <div className="p-20 mt-10 mb-20 hero min-h-screen bg-[url('https://i.ibb.co/J5dBT0v/22.jpg')]">
-            <div className="card-body w-10/12 p-5 bg-base-300 mb-10 mt-10">
+        <div className="mt-10 mb-20 hero min-h-screen bg-[url('https://i.ibb.co/J5dBT0v/22.jpg')]">
+            <div className="card-body w-10/12 bg-base-300 mb-10 mt-10">
                 <h1 className="text-center font-extrabold text-4xl text-teal-800">Single a Food </h1>
                 <div className="text-center text-2xl mb-10 mt-5">
                     <h1>Donator name: {singleFood.displayName}</h1>
                     <h1>Pickup Location: {singleFood.pickupLocation}</h1>
                 </div>
-                <div className="p-10 mb-20 border-dotted border-t border-indigo-500">
-                    <div className="hero min-h-screen bg-base-200 ">
+                <div className="mb-20 border-dotted border-t border-indigo-500">
+                    <div className="hero bg-base-200 ">
                         <div className="hero-content flex-col lg:flex-row-reverse p-10">
                             <img width="500" height="500" src={singleFood.foodImageURL} className="max-w-sm rounded-lg shadow-2xl" />
                             <div>
@@ -82,7 +82,7 @@ const SingleFoodDetails = () => {
                                 {/* You can open the modal using document.getElementById('ID').showModal() method */}
                                 <button className="btn btn-active btn-accent mt-5 w-8/12" onClick={() => document.getElementById('my_modal_4').showModal()}>Request open model</button>
                                 <dialog id="my_modal_4" className="modal">
-                                    <div className="modal-box w-11/12 max-w-5xl">
+                                    <div className="modal-box w-11/12 max-w-2xl">
                                         <div className="card-body items-center text-center">
                                             <div className="avatar">
                                                 <div className="w-24 rounded">
@@ -103,10 +103,10 @@ const SingleFoodDetails = () => {
                                             }
 
                                         </div>
-                                        <div className="border-dotted border-t border-indigo-500 p-20">
-                                            <img width="500" height="500" src={singleFood.foodImageURL} alt="" />
+                                        <div className="border-dotted border-t border-indigo-500 ">
+                                            <img width="500" height="500" src={singleFood.foodImageURL} alt="" className="mt-5 mb-5"/>
                                         </div>
-                                        <form onSubmit={handleSingleFormData} className="p-10 mb-20 border-dotted border-t border-indigo-500">
+                                        <form onSubmit={handleSingleFormData} className="mb-20 border-dotted border-t border-indigo-500">
                                             {/* 1 */}
                                             <div className="md:flex gap-4 mb-4">
                                                 <div className="form-control md:w-1/3">
@@ -117,7 +117,7 @@ const SingleFoodDetails = () => {
                                                     </label>
                                                     <label className="input-group">
                                                         <input type="text" name="foodName"
-                                                            defaultValue={singleFood.foodName} disabled
+                                                            defaultValue={singleFood.foodName} readOnly
                                                             placeholder="Food Name" className="input input-bordered w-full" id="" />
                                                     </label>
                                                 </div>
@@ -129,7 +129,7 @@ const SingleFoodDetails = () => {
                                                     </label>
                                                     <label className="input-group">
                                                         <input type="text"
-                                                            defaultValue={singleFood._id} disabled name="id" placeholder="Food Id" className="input input-bordered w-full" id="" />
+                                                            defaultValue={singleFood._id} readOnly name="id" placeholder="Food Id" className="input input-bordered w-full" id="" />
                                                     </label>
                                                 </div>
                                                 <div className="form-control md:w-1/3">
@@ -140,7 +140,7 @@ const SingleFoodDetails = () => {
                                                     </label>
                                                     <label className="input-group">
                                                         <input type="text"
-                                                            defaultValue={singleFood.foodImageURL} disabled name="foodImageURL" placeholder="Food Image URL" className="input input-bordered w-full" id="" />
+                                                            defaultValue={singleFood.foodImageURL} readOnly name="foodImageURL" placeholder="Food Image URL" className="input input-bordered w-full" id="" />
                                                     </label>
                                                 </div>
 
@@ -155,7 +155,7 @@ const SingleFoodDetails = () => {
                                                         </span>
                                                     </label>
                                                     <label className="input-group">
-                                                        <DatePicker defaultValue={singleFood.expiredDate} disabled selected={startDate} onChange={(date) => setStartDate(date)} name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date" />
+                                                        <DatePicker defaultValue={singleFood.expiredDate} readOnly selected={startDate} onChange={(date) => setStartDate(date)} name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date" />
                                                     </label>
 
                                                 </div>
@@ -167,7 +167,7 @@ const SingleFoodDetails = () => {
                                                     </label>
                                                     <label className="input-group">
                                                         <input type="text"
-                                                            defaultValue={singleFood.pickupLocation} disabled name="pickupLocation" placeholder="Pickup Location" className="input input-bordered w-full" id="" />
+                                                            defaultValue={singleFood.pickupLocation} readOnly name="pickupLocation" placeholder="Pickup Location" className="input input-bordered w-full" id="" />
                                                     </label>
                                                 </div>
 
@@ -182,7 +182,7 @@ const SingleFoodDetails = () => {
                                                     </label>
                                                     <label className="input-group">
                                                         <input type="text"
-                                                            defaultValue={singleFood.displayName} disabled name="userName" placeholder="User Name" className="input input-bordered w-full" id="" />
+                                                            defaultValue={singleFood.displayName} readOnly name="userName" placeholder="User Name" className="input input-bordered w-full" id="" />
                                                     </label>
                                                 </div>
                                                 <div className="form-control">
@@ -193,7 +193,7 @@ const SingleFoodDetails = () => {
                                                     </label>
                                                     <label className="input-group">
                                                         <input type="email"
-                                                            defaultValue={singleFood.email} disabled name="userEmail" placeholder="Your Email" className="input input-bordered w-full" id="" />
+                                                            defaultValue={singleFood.email} readOnly name="userEmail" placeholder="Your Email" className="input input-bordered w-full" id="" />
                                                     </label>
                                                 </div>
                                             </div>

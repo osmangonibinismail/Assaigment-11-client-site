@@ -8,9 +8,9 @@ const ChangeLayout = () => {
   const [item, setItem] = useState([]);
   return (
     <div>
-      <div className="text-center">
+      {/* <div className="text-center">
         <h1 className="text-3xl text-red-500">Total Card:{allFood?.length} </h1>
-      </div>
+      </div> */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-10 mb-10">
       {
         allFood?.map( (p) => (
