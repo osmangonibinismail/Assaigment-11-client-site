@@ -11,11 +11,11 @@ const ChangeLayout = () => {
       <div className="text-center">
         <h1 className="text-3xl text-red-500">Total Card:{allFood?.length} </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 p-20 pr-20 ml-20 mt-10 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-10 mb-10">
       {
         allFood?.map( (p) => (
 
-          <div className=" w-96 bg-base-100 shadow-xl mb-10">
+          <div className=" w-90 bg-base-100 shadow-xl mb-10">
             <figure><img width="800" height="700" src={p.foodImageURL} alt="Shoes" /></figure>
 
             <h2 className="text-center mt-6 text-xl font-semibold">{p.foodName}</h2>

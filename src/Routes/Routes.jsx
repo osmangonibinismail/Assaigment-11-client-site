@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             loader: ({params}) => fetch(`https://assaigment-11-server-site-henna.vercel.app/singleFoodDetails/${params.id}`)
         },
         {
-            path: 'extra',
+            path: 'anotherItem',
             element: <Extra></Extra>
         },
         {

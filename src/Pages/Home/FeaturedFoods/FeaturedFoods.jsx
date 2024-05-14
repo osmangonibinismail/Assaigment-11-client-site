@@ -19,10 +19,10 @@ const FeaturedFoods = () => {
 
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 mt-10 mb-10">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-10">
             {
                 item.slice(0, 6).map((p) => (
-                    <div className=" w-96 bg-base-100 shadow-xl">
+                    <div className=" w-90 bg-base-100 shadow-xl mb-10">
                         <figure><img width="800" height="700" src={p.foodImageURL} alt="Shoes" /></figure>
 
                         <h2 className="text-center mt-6 text-xl font-semibold">{p.foodName}</h2>

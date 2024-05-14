@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -7,13 +7,15 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const Register = () => {
-
+    const location = useLocation();
     const axiosSecure = useAxiosSecure()
     const { createUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
+    
 
     const handleRegister = async event => {
         event.preventDefault();
+        
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
@@ -31,10 +33,14 @@ const Register = () => {
 
             // console.log(data)
             toast.success('Successfully Log in!')
-            navigate('/');
+            navigate(location?.state ? location.state : '/');
         } catch (error) {
             // console.log(error)
-            toast.error(error?.message)
+            if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+                toast.error('Email already exists. Please use a different email.');
+            } else {
+                toast.error('Error registering user: ' + error.message);
+            }
         }
 
 
@@ -92,7 +98,7 @@ const Register = () => {
                                 <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn btn-primary" type="submit" value="Register" />
                             </div>
                         </form>
                         <p className="text-center my-4">Already Have an Account? please <Link to='/login' className="text-orange-600 text-xl font-bold">Log in</Link></p>
