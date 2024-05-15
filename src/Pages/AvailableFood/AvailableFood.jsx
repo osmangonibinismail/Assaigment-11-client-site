@@ -48,13 +48,10 @@ const AvailableFood = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 justify-between">
+      <div className="text-start">
         {/* <h1 className="text-3xl text-red-500">Total Card:{allFood?.length} </h1> */}
-
-        {/*search form   onSubmit={handleSearch} */}
-        <div>
         <form onSubmit={handleSearch}>
-          <div className="flex p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+          <div className="flex p-1 overflow-hidden  rounded-lg ">
             <input
               className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline focus:placeholder-transparent"
               // onChange={e => setSearchText(e.target.value)}
@@ -68,27 +65,13 @@ const AvailableFood = () => {
             </button>
           </div>
         </form>
-        </div>
-        {/*  */}
-        <div className="justify-end">
-          <button
-            onClick={() => setAsc(!asc)}
-            className="btn btn-outline  justify-end">
-            {asc ? 'Date High to low' : 'Date Low to High'}
-          </button>
-        </div>
-        {/* <div>
-          <select
-            onChange={e => {
-              setSort(e.target.value)
-            }}
-            name="sort" id="sort" value={sort} className="border p-4 rounded-md">
-            <option value="">Expired Date</option>
-            <option value="dsc">Descending Order</option>
-            <option value="asc">Ascending Order</option>
-          </select>
-        </div> */}
-
+      </div>
+      <div className="text-end">
+        <button
+          onClick={() => setAsc(!asc)}
+          className="btn btn-outline ">
+          {asc ? 'Date High to low' : 'Date Low to High'}
+        </button>
       </div>
       <div className="mt-5 mb-5 text-center">
         <Link to={'/changeLayout'}><button className="btn btn-outline  justify-end">Change Layout</button></Link>
