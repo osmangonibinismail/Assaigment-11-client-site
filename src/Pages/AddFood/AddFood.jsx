@@ -1,4 +1,4 @@
-import {  useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
@@ -9,9 +9,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const AddFood = () => {
     const [startDate, setStartDate] = useState(new Date());
-    
+
     const { user } = useContext(AuthContext);
-// console.log(user)
+    // console.log(user)
     // console.log("this is ", user);
     const [addFormErrors, setAddFormErrors] = useState({});
     const Navigate = useNavigate();
@@ -141,8 +141,9 @@ const AddFood = () => {
                                 </span>
                             </label>
                             <label className="input-group">
-                                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date"/>
+                                <input type="date" name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date" />
                             </label>
+
                         </div>
                         <div className="form-control md:w-2/3">
                             <label className="label">

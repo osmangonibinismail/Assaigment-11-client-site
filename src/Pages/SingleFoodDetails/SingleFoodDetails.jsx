@@ -157,8 +157,7 @@ const SingleFoodDetails = () => {
                                                         </span>
                                                     </label>
                                                     <label className="input-group">
-                                                        <input type="datetime" defaultValue={singleFood.expiredDate} readOnly name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date"  />
-                                                        {/* <DatePicker defaultValue={singleFood.expiredDate} readOnly selected={startDate} onChange={(date) => setStartDate(date)} name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date" /> */}
+                                                        <input type="date" defaultValue={singleFood.expiredDate} readOnly name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date"  />
                                                     </label>
 
                                                 </div>
