@@ -19,12 +19,10 @@ const AvailableFood = () => {
 
   useEffect(() => {
   if(search && asc){
-    fetch(`https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=${asc ? 'asc' : 'des'}&search=${search}`)
+    fetch(`https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=${asc?'asc':'des'}&search=${search}`)
       .then(res => res.json())
       .then(data => setFood(data));
-  }
-    
-  }, [asc, search])
+  }}, [asc, search])
 
   // useEffect(() => {
   //   const getCount = async () => {
