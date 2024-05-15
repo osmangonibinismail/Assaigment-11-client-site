@@ -9,21 +9,21 @@ import { data } from "autoprefixer";
 const AvailableFood = () => {
 
   // const axiosSecure = useAxiosSecure()
-  const { user } = useContext(AuthContext);
   const allFood = useLoaderData() || [];
-  const [item, setItem] = useState([]);
-  const [filter, setfilter] = useState('')
   const [search, setSearch] = useState('');
-  const [searchText, setSearchText] = useState('')
 
 
   const [asc, setAsc] = useState(true);
-  const [sort, setSort] = useState('');
+  const [food, setFood] = useState(allFood);
+ console.log(food)
 
   useEffect(() => {
+  if(search && asc){
     fetch(`https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=${asc ? 'asc' : 'des'}&search=${search}`)
       .then(res => res.json())
-      .then(data => setSort(data));
+      .then(data => setFood(data));
+  }
+    
   }, [asc, search])
 
   // useEffect(() => {
@@ -48,8 +48,13 @@ const AvailableFood = () => {
 
   return (
     <div>
-      <div className="text-start">
+      {/* <form onSubmit={handleSearch}>
+        <input type="text" name="search" id="" />
+        <input type="submit" value="search" className="btn" />
+      </form> */}
+      <div className="text-start ml-2">
         {/* <h1 className="text-3xl text-red-500">Total Card:{allFood?.length} </h1> */}
+        
         <form onSubmit={handleSearch}>
           <div className="flex p-1 overflow-hidden  rounded-lg ">
             <input
@@ -66,7 +71,7 @@ const AvailableFood = () => {
           </div>
         </form>
       </div>
-      <div className="text-end">
+      <div className="text-end mr-4">
         <button
           onClick={() => setAsc(!asc)}
           className="btn btn-outline ">
@@ -79,7 +84,7 @@ const AvailableFood = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 mt-10 mb-10">
         {
-          allFood?.map((p) => (
+          food?.map((p) => (
 
             <div className=" w-90 bg-base-100 shadow-xl mb-10">
               <figure><img width="800" height="700" src={p.foodImageURL} alt="Shoes" /></figure>

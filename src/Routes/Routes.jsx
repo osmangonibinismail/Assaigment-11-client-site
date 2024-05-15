@@ -13,6 +13,7 @@ import SingleFoodDetails from "../Pages/SingleFoodDetails/SingleFoodDetails";
 import Extra from "../Pages/Extra/Extra";
 import MyRequest from "../Pages/MyRequest/MyRequest";
 import ChangeLayout from "../Pages/ChangeLayout/ChangeLayout";
+import Framer from "../Pages/Framer/Framer";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         {
             path: 'availableFood',
             element: <AvailableFood></AvailableFood>,
-            loader: () => fetch('https://assaigment-11-server-site-henna.vercel.app/allAvailableFood')
+            loader: () => fetch('https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=des&search=')
         },
         {
             path: 'manageMyFood',
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             path: 'changeLayout',
             element: <ChangeLayout></ChangeLayout>,
             loader: () => fetch('https://assaigment-11-server-site-henna.vercel.app/changeLayout')
+        },
+        {
+            path: 'framer',
+            element: <Framer></Framer>
         }
       ]
     },
