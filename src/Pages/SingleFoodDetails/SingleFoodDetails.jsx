@@ -61,8 +61,8 @@ const SingleFoodDetails = () => {
 
     
     return (
-        <div className="mt-10 mb-20 hero min-h-screen bg-[url('https://i.ibb.co/J5dBT0v/22.jpg')]">
-            <div className="card-body w-10/12 bg-base-300 mb-10 mt-10">
+        <div className="mt-10 mb-20 min-h-screen bg-[url('https://i.ibb.co/J5dBT0v/22.jpg')]">
+            <div className="hero w-10/12 bg-base-300 mb-10 mt-10">
                 <h1 className="text-center font-extrabold text-4xl text-teal-800">Single a Food </h1>
                 <div className="text-center text-2xl mb-10 mt-5">
                     <h1>Donator name: {singleFood.displayName}</h1>
@@ -157,7 +157,7 @@ const SingleFoodDetails = () => {
                                                         </span>
                                                     </label>
                                                     <label className="input-group">
-                                                        <input type="date" defaultValue={singleFood.expiredDate} readOnly name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date"  />
+                                                        <input type="date" defaultValue={singleFood.expiredDate} readOnly name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date"  id="" />
                                                     </label>
 
                                                 </div>
