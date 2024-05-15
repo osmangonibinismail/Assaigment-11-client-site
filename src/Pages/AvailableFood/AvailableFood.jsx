@@ -15,14 +15,15 @@ const AvailableFood = () => {
 
   const [asc, setAsc] = useState(true);
   const [food, setFood] = useState(allFood);
- console.log(food)
+  console.log(food)
 
   useEffect(() => {
-  if(search && asc){
-    fetch(`https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=${asc?'asc':'des'}&search=${search}`)
-      .then(res => res.json())
-      .then(data => setFood(data));
-  }}, [asc, search])
+    if (search && asc) {
+      fetch(`https://assaigment-11-server-site-henna.vercel.app/allAvailableFood?sort=${asc?'asc':'des'}&search=${search}`)
+        .then(res => res.json())
+        .then(data => setFood(data));
+    }
+  }, [asc, search])
 
   // useEffect(() => {
   //   const getCount = async () => {
@@ -52,7 +53,7 @@ const AvailableFood = () => {
       </form> */}
       <div className="text-start ml-2">
         {/* <h1 className="text-3xl text-red-500">Total Card:{allFood?.length} </h1> */}
-        
+
         <form onSubmit={handleSearch}>
           <div className="flex p-1 overflow-hidden  rounded-lg ">
             <input
@@ -96,14 +97,14 @@ const AvailableFood = () => {
                       {/* <img src={user?.photoURL ? user?.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} /> */}
                     </div>
                   </div>
-                  <div>name: {p.displayName}</div>
+                  <div><a className="font-semibold">Doner Name: </a>{p.displayName}</div>
                 </div>
                 <div className="flex justify-between">
-                  <div className="">Quantity:{p.foodQuantity}</div>
-                  <div>Expired: {p.expiredDate}</div>
+                  <div className=""><a className="font-semibold">Quantity: </a>{p.foodQuantity}</div>
+                  <div><a className="font-semibold">Expired Date: </a>{p.expiredDate}</div>
                 </div>
-                <div>Location:{p.pickupLocation}</div>
-                <p>Additional Notes: {p.additionalNotes}</p>
+                <div><a className="font-semibold">Pickup Location: </a>{p.pickupLocation}</div>
+                <p><a className="font-semibold">Additional Notes: </a>{p.additionalNotes}</p>
                 <Link to={`/singleFoodDetails/${p._id}`}><button className="btn btn-outline btn-info w-full">details</button></Link>
               </div>
             </div>

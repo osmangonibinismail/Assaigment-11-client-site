@@ -15,6 +15,15 @@ const SingleFoodDetails = () => {
     const [singleFood, setSingleFood] = useState({});
     const navigate = useNavigate();
 
+    useEffect(() => {
+        fetch(`https://assaigment-11-server-site-henna.vercel.app/singleFoodDetails/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setSingleFood(data);
+                // console.log(data);
+            })
+    }, [id])
+
     const handleSingleFormData = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -23,17 +32,20 @@ const SingleFoodDetails = () => {
         const foodImageURL = form.foodImageURL.value;
         const id = form.id.value;
         const expiredDate = form.expiredDate.value;
+        const requestDate = form.requestDate.value;
         const pickupLocation = form.pickupLocation.value;
         const additionalNotes = form.additionalNotes.value;
         const email = user.email;
         const displayName = user.displayName;
         const photoURL = user.photoURL
-        const myFoodRequest = { id, foodName, foodImageURL, expiredDate, pickupLocation, additionalNotes, email, displayName, photoURL,
+        const myFoodRequest = { id, foodName, foodImageURL, expiredDate, pickupLocation, additionalNotes, email, displayName, photoURL, requestDate
         }
+
+        
         // console.table(myFoodRequest);
-        fetch(`https://assaigment-11-server-site-henna.vercel.app/requested/${user?.email}`, {
+        fetch(`https://assaigment-11-server-site-henna.vercel.app/requested`, {
             method: "POST",
-            credentials: "include",
+            // credentials: "include",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(myFoodRequest)
         })
@@ -45,19 +57,9 @@ const SingleFoodDetails = () => {
                 // console.log(data)
                 
             })
-
-
-        
     }
 
-    useEffect(() => {
-        fetch(`https://assaigment-11-server-site-henna.vercel.app/singleFoodDetails/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setSingleFood(data);
-                // console.log(data);
-            })
-    }, [id])
+    
     return (
         <div className="mt-10 mb-20 hero min-h-screen bg-[url('https://i.ibb.co/J5dBT0v/22.jpg')]">
             <div className="card-body w-10/12 bg-base-300 mb-10 mt-10">
@@ -155,11 +157,23 @@ const SingleFoodDetails = () => {
                                                         </span>
                                                     </label>
                                                     <label className="input-group">
-                                                        <DatePicker defaultValue={singleFood.expiredDate} readOnly selected={startDate} onChange={(date) => setStartDate(date)} name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date" />
+                                                        <input type="datetime" defaultValue={singleFood.expiredDate} readOnly name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date"  />
+                                                        {/* <DatePicker defaultValue={singleFood.expiredDate} readOnly selected={startDate} onChange={(date) => setStartDate(date)} name="expiredDate" className="input input-bordered w-full" placeholder="Expired Date" /> */}
                                                     </label>
 
                                                 </div>
-                                                <div className="form-control md:w-2/3">
+                                                <div className="form-control md:w-1/3">
+                                                    <label className="label">
+                                                        <span className="label-text font-bold">
+                                                            Request Date
+                                                        </span>
+                                                    </label>
+                                                    <label className="input-group">
+                                                        <DatePicker readOnly selected={startDate} onChange={(date) => setStartDate(date)} name="requestDate" className="input input-bordered w-full" placeholder="Expired Date" />
+                                                    </label>
+
+                                                </div>
+                                                <div className="form-control md:w-1/3">
                                                     <label className="label">
                                                         <span className="label-text font-bold">
                                                             Pickup Location

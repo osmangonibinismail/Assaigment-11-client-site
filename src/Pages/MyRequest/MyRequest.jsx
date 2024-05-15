@@ -56,11 +56,14 @@ const MyRequest = () => {
 
                             <div className="card w-96 bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-2xl">
                                 <div className="card-body">
-                                    <h2 className="card-title">{requestFood.displayName}</h2>
-                                    <p>{requestFood.expiredDate}</p>
-                                    <h2>Food id: {requestFood._id}</h2>
+                                    <h2 className="text-2xl font-semibold text-center"><a className="font-semibold">Donar Name: </a>{requestFood.displayName}</h2>
+                                    <div className="grid grid-cols-1 md:grid-cols-2">
+                                    <p><a className="font-semibold">Expire Date: </a>{requestFood.expiredDate}</p>
+                                    <p><a className="font-semibold">Request Date: </a>{requestFood.requestDate}</p>
+                                    </div>
+                                    <h2><a className="font-semibold">Food id: </a>{requestFood._id}</h2>
                                     <div className="card-actions justify-end">
-                                        <button className="btn">{requestFood.pickupLocation}</button>
+                                        <button className="btn"><a className="font-semibold">Pickup Location: </a>{requestFood.pickupLocation}</button>
                                     </div>
                                 </div>
                             </div>

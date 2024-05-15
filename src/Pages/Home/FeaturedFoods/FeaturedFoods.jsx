@@ -6,11 +6,11 @@ const FeaturedFoods = () => {
 
 
     const allFood = useLoaderData() || [];
-    // console.log(allFood)
+    console.log(allFood)
     const [item, setItem] = useState([]);
 
     useEffect(() => {
-        fetch('https://assaigment-11-server-site-henna.vercel.app/allAvailableFood')
+        fetch('https://assaigment-11-server-site-henna.vercel.app/featuredFood')
           .then(res => res.json())
           .then(data => {
             setItem(data);
@@ -33,14 +33,14 @@ const FeaturedFoods = () => {
                                         <img src={p.photoURL} alt="" />
                                     </div>
                                 </div>
-                                <div>name: {p.displayName}</div>
+                                <div><a className="font-semibold">Donator Name: </a>{p.displayName}</div>
                             </div>
                             <div className="flex justify-between">
-                                <div className="">Quantity:{p.foodQuantity}</div>
-                                <div>Expired: {p.expiredDate}</div>
+                                <div className=""><a className="font-semibold">Quantity: </a>{p.foodQuantity}</div>
+                                <div><a className="font-semibold">Expired: </a> {p.expiredDate}</div>
                             </div>
-                            <div>Location:{p.pickupLocation}</div>
-                            <p>Additional Notes: {p.additionalNotes}</p>
+                            <div><a className="font-semibold">Pickup Location: </a>{p.pickupLocation}</div>
+                            <p><a className="font-semibold">Additional Notes: </a>{p.additionalNotes}</p>
                             <Link to={`/singleFoodDetails/${p._id}`}><button className="btn btn-outline btn-info w-full">details</button></Link>
 
                         </div>
