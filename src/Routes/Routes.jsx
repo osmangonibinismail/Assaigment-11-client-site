@@ -14,6 +14,7 @@ import Extra from "../Pages/Extra/Extra";
 import MyRequest from "../Pages/MyRequest/MyRequest";
 import ChangeLayout from "../Pages/ChangeLayout/ChangeLayout";
 import Framer from "../Pages/Framer/Framer";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
         {
             path: 'anotherItem',
             element: <Extra></Extra>
+        },
+        {
+            path: 'contactWithUs',
+            element: <ContactUs></ContactUs>
         },
         {
             path: 'request',
